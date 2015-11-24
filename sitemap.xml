@@ -4,17 +4,69 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2015-11-21</lastmod>
+     <lastmod>2015-11-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>None/about/</loc>
-     <lastmod>2015-11-21</lastmod>
+     <loc>None/basics/intro/</loc>
+     <lastmod>2015-11-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>None/basics/install/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/guides/appserver/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/guides/mongo3server/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/guides/mysql5server/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/guides/beanstalkserver/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/about/license/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/about/release-notes/</loc>
+     <lastmod>2015-11-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

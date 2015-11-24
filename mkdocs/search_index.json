@@ -2,53 +2,218 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Command Center ?\n\n\nCommand Center is an infrastructure and application lifecycle managment tool optimized for developpers.\n\n\nIt lets you run complex, cloud agnostic infrastructure using developper friendly cli tool and json configuration. \n\n\nWritten with real world applications in mind, it includes simple but powerful application lifecycle  managment tools.\n\n\nEvery command is designed to perfectly match what you want to do and give you the shortest path to do it.\n\n\nRead more\n\n\nBasics\n\n\n- \nInstall instructions for Linux\n\n\n- \nInstall instructions for Macosx\n\n\n- \nInstall instructions for Windows\n\n\nGuides\n\n\n- \nApplication Server\n\n\n- \nMongoDB Server\n\n\n- \nMySQL Server\n\n\n- \nBeanstalk Server", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
+            "location": "/basics/intro/", 
+            "text": "Command Center ?\n\n\nCmdCenter is an infrastructure and application lifecycle managment tool optimized for developpers.\n\n\nIt lets you run complex, cloud agnostic infrastructure using developper friendly cli tool and json configuration. \n\n\nWritten with real world applications in mind, it includes simple but powerful application lifecycle  managment tools.\n\n\nEvery command is designed to perfectly match what you want to do and give you the shortest path to do it.\n\n\nWhat kind of infrastructure ?\n\n\nIt manages all kind of server types:\n\n\n\n\napplication servers, running docker containers\n\n\nmysql databases (mysql, postgresql, ...)\n\n\nnosql databases (mongodb, couchdb, ...)\n\n\ncache servers (memcache, ...)\n\n\nwork queues (beanstalkd, ...)\n\n\nci servers (jenkins, ...)\n\n\ndistributes file systems (GlusterFS, BeeGFS, ...)\n\n\nS3 like object stores (RiakCS, ...)\n\n\n...\n\n\n\n\nHow is it better than writing my own bash scripts ?\n\n\nYou dont have to write it anymore, cmdcenter takes care of traslating simple commands into complex scripts that run serverside.\n\n\nIt saves you tons of time, especially if you manage a lot of projects involving varied software stacks.\n\n\nManually SSH to the server to make a change will become the exception rather than the rule\n\n\nI am affraid to lose control\n\n\nUnlike other infrastructure tools on the marker selling you too much magic, cmdcenter requires you to understand what you are doing.\n\n\nEvery command is designed to perfectly match what you want to do and give you the shortest path to do it.\n\n\nYou said applications ?\n\n\nYes, cmdcenter also manages application creation, deployment, continious integration, environments and backups\n\n\ncreate:\n\n\ncmdcenter.py create app nodejs --name myapp_staging --domain myapp.com --git git@github.com:someuser/myapp.git --wwwdir \nsrc/www\n --env staging --org myorg\n\n\n\n\ndeploy:\n\n\ncmdcenter.py deploy app myapp_staging --org myorg\n\n\n\n\nbackup:\n\n\ncmdcenter.py backup app myapp_staging --org myorg\n\n\n\n\nWhat kind of applications ?\n\n\nYou can literally run any stack or application you want using cmdcenter.\n\n\nUnder the hood, cmdcenter uses docker containers for each application.\n\n\nNot happy with pregenerated Dockerfile ? Simply write your own !\n\n\nHow about operations engeneers ?\n\n\nCmdCenter works best inside organisations with strong devops culture.\n\n\nHowever it doesn't force you to share access to staging/test/production environments, so you can still separate dev and ops if you want.\n\n\nCloud agnostic ?\n\n\nYes, the only few requirements are:\n- your server provider has to support private networking\n- all server instances must live on same datacenter\n- base server image must be ubuntu 14.04 LTS, which is available on any VPS/dedicated server provider\n\n\nNOTE:\n Other base images will be supported later\n\n\nWhat if you dont support Y ?\n\n\nCmdCenter is open source and MIT licenced, it can support virtualy any server type.\n\n\nFeature and pull requests are more than welcome.", 
+            "title": "Introduction"
         }, 
         {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
+            "location": "/basics/install/", 
+            "text": "INSTALL WINDOWS 7/8 (CYGWIN ONLY)\n\n\nFully working instructions to install all dependencies on windows (using cygwin)\n\n\nBefore installing, please make sure you have a compiler installed.\nIt is needed for \"pycrypto\" module.\nHere is a list of cygwin packages you may install to get a working compiler:\n\n\n- libgcc\n- gcc-core\n- gcc-g++\n- colorgcc\n\n\n\n\ninstall python 2.7\n\n\ninstall other dependencies:\n\n\neasy_install --upgrade pip\npip install fabric\npip install ecdsa\npip install pycrypto\npip install configparser\n\n\n\n\nAfter that you will need to add a $CMDCENTER_DATAHOME env var\n\n\nThen append _bin path to $PATH\n\n\nINSTALL MACOSX\n\n\nFully working instructions to install all dependencies on macosx\n\n\npython --version \n sudo easy_install --upgrade pip \n sudo -H pip install fabric \n sudo -H pip install ecdsa \n sudo -H pip install pycrypto \n sudo -H pip install configparser\n\n\n\n\nAfter that you will need to add a $CMDCENTER_DATAHOME env var\n\n\nThen append _bin path to $PATH\n\n\nINSTALL UBUNTU 14.04 LTS\n\n\nRun this in your terminal to install dependencies\n\n\npython --version \n sudo apt-get -y install python-pip \n sudo -H pip install fabric \n sudo -H pip install ecdsa \n sudo -H pip install pycrypto \n sudo -H pip install configparser\n\n\n\n\nAfter that you will need to add a $CMDCENTER_DATAHOME env var:\n\n\nexport CMDCENTER_DATAHOME=\n$HOME/.cmdcenter/data\n\n\n\n\n\nThen append _bin path to $PATH\n\n\nexport PATH=\n$HOME/.cmdcenter/src/scripts/_bin:$PATH", 
+            "title": "Install instructions"
         }, 
         {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/basics/install/#install-windows-78-cygwin-only", 
+            "text": "Fully working instructions to install all dependencies on windows (using cygwin)  Before installing, please make sure you have a compiler installed.\nIt is needed for \"pycrypto\" module.\nHere is a list of cygwin packages you may install to get a working compiler:  - libgcc\n- gcc-core\n- gcc-g++\n- colorgcc  install python 2.7  install other dependencies:  easy_install --upgrade pip\npip install fabric\npip install ecdsa\npip install pycrypto\npip install configparser  After that you will need to add a $CMDCENTER_DATAHOME env var  Then append _bin path to $PATH", 
+            "title": "INSTALL WINDOWS 7/8 (CYGWIN ONLY)"
         }, 
         {
-            "location": "/about/", 
-            "text": "Ex flamma favillam suasque parentem ibat necem\n\n\nFuneris rubentis alte\n\n\nLorem markdownum moenibus vincula uno vocat cernit volutant membra ego dederat\nIuno? Latas cutem tantus per Minos fugerat meritis, iter, erat Europa parsque;\nresurgere \nfas Tritoniaca colla\n manifestaque.\n\n\n\n\nDiffert domos repetita et sed precari morsu\n\n\nEst facto surrexit natura\n\n\nSede sit sibi\n\n\nErat quod\n\n\nNatus sed vidi optata virens apta volucrum\n\n\n\n\nConstitit ab mori arcebatque corpus\n\n\nUnguibus vix aulam acta, est \nmihi\ngenerisque\n, luctor repetemus lacertis.\nIndigetem noctisque litora, cratera iamque et novercam peregerit ferinas primum.\nDiligis muneris distincta delabere ferro stirpe et vacuas increpat \nad\n\nfrontem fallite tremiscens.\n\n\n\n\nCutem somniferis ille\n\n\nSed uritur tenuit diu ut equidem sensit\n\n\nSoporem aquis ante redeunt\n\n\nMedia deficiunt mater\n\n\n\n\nEgit praecipites vestras cultor\n\n\nGenitor repetendus nec nullaque docuit reminiscitur atque indigenaene tenus\nvestigia veluti di ad. Pares in Thracia timore, \nest\nore\n nunc caeli in habuit \nnymphe\nexsecrantia vivere\n, ubi cum extremis lucem?\n\n\nLambit undis fraterque natus\n\n\nUt avidam, cum, et pro et Aiax nec \nexstant vixque\n genitore sanguine quae\ncredi tam digna. Incurvo ultimus racemiferis sub sic ipse inermia, bobus neci!\nHominis et \nilla\n, pyra est mihi, est quodque futuri specularer.\n\n\n\n\nNaturae salus enim dares miserum voce Osiris, iuvenes formidine crescentem\ngeneri inquirit quaerunt deae. Quae utque corpora admonuit distamus\nconcursibus amat fila simillimus vel, volucris caecae Cyanen maestae.\nPuerilibus ulla hinc comites, nata et summis repulsa tibi.\n\n\n\n\nFeroces novas fuisses peregrina, auras videndum. Depositum fuerat polis,\nadpositi exanimi arcet austrum tenebris. Inquit fecit pectore texerat, et quem.\nNon pondere Acmona fixis, possederat commenta locus expersque, liquidas. Quae ab\nnullasque quid generis vidit doleres inmanem mediam rediit maenala parentque\ntremat obstitit.", 
-            "title": "About"
+            "location": "/basics/install/#install-macosx", 
+            "text": "Fully working instructions to install all dependencies on macosx  python --version   sudo easy_install --upgrade pip   sudo -H pip install fabric   sudo -H pip install ecdsa   sudo -H pip install pycrypto   sudo -H pip install configparser  After that you will need to add a $CMDCENTER_DATAHOME env var  Then append _bin path to $PATH", 
+            "title": "INSTALL MACOSX"
         }, 
         {
-            "location": "/about/#ex-flamma-favillam-suasque-parentem-ibat-necem", 
-            "text": "", 
-            "title": "Ex flamma favillam suasque parentem ibat necem"
+            "location": "/basics/install/#install-ubuntu-1404-lts", 
+            "text": "Run this in your terminal to install dependencies  python --version   sudo apt-get -y install python-pip   sudo -H pip install fabric   sudo -H pip install ecdsa   sudo -H pip install pycrypto   sudo -H pip install configparser  After that you will need to add a $CMDCENTER_DATAHOME env var:  export CMDCENTER_DATAHOME= $HOME/.cmdcenter/data   Then append _bin path to $PATH  export PATH= $HOME/.cmdcenter/src/scripts/_bin:$PATH", 
+            "title": "INSTALL UBUNTU 14.04 LTS"
         }, 
         {
-            "location": "/about/#funeris-rubentis-alte", 
-            "text": "Lorem markdownum moenibus vincula uno vocat cernit volutant membra ego dederat\nIuno? Latas cutem tantus per Minos fugerat meritis, iter, erat Europa parsque;\nresurgere  fas Tritoniaca colla  manifestaque.   Differt domos repetita et sed precari morsu  Est facto surrexit natura  Sede sit sibi  Erat quod  Natus sed vidi optata virens apta volucrum", 
-            "title": "Funeris rubentis alte"
+            "location": "/guides/appserver/", 
+            "text": "Intro\n\n\nApplication server is a server type that will let us run applications inside docker containers.\n\n\nUnused port is automaticaly assigned to each container to route HTTP traffic.\n\n\nNginx is listening on ports 80 and 443.\n\n\nIn the example below, organisation has 6 apps and 1 \nappserver\n instance\n\n\n\n\nDesign decisions\n\n\nDocker\n\n\nOne \nappserver\n instance runs multiple apps, each app has its own docker container\n\n\nMultiple \nappserver\n instances inside same organisation will run, the exact same set of apps\n\n\nApplication state\n\n\nEach application is stateless. We consider that you must NOT use your application server's disk to store app state\n\n\nInstead, you can use databases, file servers and services like AWS S3\n\n\nPlease check guides on \nmongodb\n and \nmysql\n to understand how cmdcenter manages databases \n\n\nStateless approcoah also helps to horizontaly scale your apps, by adding or removing \nappserver\n instances at will.\n\n\nCreate new instance\n\n\nAssuming that:\n\n\n\n\nyour organisation name is: \nmyorg\n\n\npublic IP of your server is: \naaa.aaa.aaa.aaa\n\n\nprivate IP of your server is: \nbbb.bbb.bbb.bbb\n\n\n\n\ncmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc \nnote\n appserver --org myorg\n\n\n\n\nRunning this command will add new entry into \ninstances.json\n file in \nmyorg/servers/appserver\n folder\n\n\nInstances file\n\n\ninstances.json\n contains list of every \nappserver\n instance available in current organisation\n\n\n\n[\n    {\n        \npublicIP\n: \naaa.aaa.aaa.aaa\n, \n        \ndescription\n: \nnote\n, \n        \nrole\n: \ndefault\n, \n        \nname\n: \nappserver_o6hbh\n, \n        \nprivateIP\n: \nbbb.bbb.bbb.bbb\n\n    }\n]\n\n\n\n\n\neach instance has following fields:\n\n\n\n\n\n\n\n\nField\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\npublicIP\n\n\nPublic IP address of this server\n\n\n\n\n\n\nprivateIP\n\n\nIP address of this server on the private network\n\n\n\n\n\n\nname\n\n\nunique instance name\n\n\n\n\n\n\nrole\n\n\nalways \ndefault\n\n\n\n\n\n\ndescription\n\n\noptional text to describe this instance\n\n\n\n\n\n\n\n\nCredentials file\n\n\nInstances are automatically configured to use sshkeys as ssh auth mecanism.\n\n\nHowever, users still require passwords to perform system administrator operations \n\n\nAssuming that your organisation name is: \nmyorg\n, username and password of sudo capable user is stored in \nmyorg/servers/appserver/access.ini\n file:\n\n\n[sudouser]\nusername=randomsudousername\npassword=RaNd0mP@5SW0rD\n\n\n\n\nApply configuration (1/2)\n\n\nFirst configuration step connects as root and creates sudo capable user using \naccess.ini\n configuration.\n\n\nUsualy you only run this command once, or/and everytime you add new \nappserver\n instance to your organisation.\n\n\ncmdcenter.py setup server --step 1 appserver --org myorg\n\n\n\n\nApply configuration (2/2)\n\n\nSecond configuration step connects as sudo capable user and installs minimum viable software:\n\n\n\n\ndocker\n\n\ngit\n\n\nnginx\n\n\nfail2ban\n\n\n\n\nIt also copies configutation files\n\n\ncmdcenter.py setup server --step 2 appserver --org myorg\n\n\n\n\nShow servers\n\n\nYou can use following command to show servers in your organisation\n\n\ncmdcenter.py show servers --org myorg\n\n\n\n\nHere is a list of server groups i found in \nmyorg\n organisation:\n\nappserver\n  appserver_5davo :: default :: appserver 01\n    publicIP  : aaa.aaa.aaa.aaa\n    privateIP : bbb.bbb.bbb.bbb\n\nmysql5server\n  mysql5server_3mqdG :: default :: main mysql5server\n    publicIP  : ccc.ccc.ccc.ccc\n    privateIP : ddd.ddd.ddd.ddd\n\nmongo3server\n  mongo3server_lEdlj :: default :: main mongo3server\n    publicIP  : eee.eee.eee.eee\n    privateIP : fff.fff.fff.fff\n\n\n\n\nSSH\n\n\nYou can SSH to any server \nappserver\n instance.\n\n\nHere is a command to lisy your SSH options for \nmyorg\n organisation\n\n\ncmdcenter.py ssh appserver --org myorg\n\n\n\n\nUSAGE: cmdcenter.py ssh SERVERGROUP USERNAME HOSTNAME\n\nHere is a list of servers you can SSH:\n\n  cmdcenter.py ssh appserver randomsudousername aaa.aaa.aaa.aaa --org myorg\n  cmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg\n\n  cmdcenter.py ssh mysql5server randomsudousername ccc.ccc.ccc.ccc --org myorg\n  cmdcenter.py ssh mysql5server root ccc.ccc.ccc.ccc --org myorg\n\n  cmdcenter.py ssh mongo3server randomsudousername eee.eee.eee.eee --org myorg\n  cmdcenter.py ssh mongo3server root eee.eee.eee.eee --org myorg\n\n\n\n\nThen, simply pick an instance and user to SSH\n\n\ncmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg\n\n\n\n\nYou do not need to enter passwords, these are automatically picked up from your \naccess.ini\n config files in combination with ssh keys.", 
+            "title": "Application Server"
         }, 
         {
-            "location": "/about/#constitit-ab-mori-arcebatque-corpus", 
-            "text": "Unguibus vix aulam acta, est  mihi\ngenerisque , luctor repetemus lacertis.\nIndigetem noctisque litora, cratera iamque et novercam peregerit ferinas primum.\nDiligis muneris distincta delabere ferro stirpe et vacuas increpat  ad \nfrontem fallite tremiscens.   Cutem somniferis ille  Sed uritur tenuit diu ut equidem sensit  Soporem aquis ante redeunt  Media deficiunt mater", 
-            "title": "Constitit ab mori arcebatque corpus"
+            "location": "/guides/appserver/#intro", 
+            "text": "Application server is a server type that will let us run applications inside docker containers.  Unused port is automaticaly assigned to each container to route HTTP traffic.  Nginx is listening on ports 80 and 443.  In the example below, organisation has 6 apps and 1  appserver  instance", 
+            "title": "Intro"
         }, 
         {
-            "location": "/about/#egit-praecipites-vestras-cultor", 
-            "text": "Genitor repetendus nec nullaque docuit reminiscitur atque indigenaene tenus\nvestigia veluti di ad. Pares in Thracia timore,  est\nore  nunc caeli in habuit  nymphe\nexsecrantia vivere , ubi cum extremis lucem?", 
-            "title": "Egit praecipites vestras cultor"
+            "location": "/guides/appserver/#design-decisions", 
+            "text": "Docker  One  appserver  instance runs multiple apps, each app has its own docker container  Multiple  appserver  instances inside same organisation will run, the exact same set of apps  Application state  Each application is stateless. We consider that you must NOT use your application server's disk to store app state  Instead, you can use databases, file servers and services like AWS S3  Please check guides on  mongodb  and  mysql  to understand how cmdcenter manages databases   Stateless approcoah also helps to horizontaly scale your apps, by adding or removing  appserver  instances at will.", 
+            "title": "Design decisions"
         }, 
         {
-            "location": "/about/#lambit-undis-fraterque-natus", 
-            "text": "Ut avidam, cum, et pro et Aiax nec  exstant vixque  genitore sanguine quae\ncredi tam digna. Incurvo ultimus racemiferis sub sic ipse inermia, bobus neci!\nHominis et  illa , pyra est mihi, est quodque futuri specularer.   Naturae salus enim dares miserum voce Osiris, iuvenes formidine crescentem\ngeneri inquirit quaerunt deae. Quae utque corpora admonuit distamus\nconcursibus amat fila simillimus vel, volucris caecae Cyanen maestae.\nPuerilibus ulla hinc comites, nata et summis repulsa tibi.   Feroces novas fuisses peregrina, auras videndum. Depositum fuerat polis,\nadpositi exanimi arcet austrum tenebris. Inquit fecit pectore texerat, et quem.\nNon pondere Acmona fixis, possederat commenta locus expersque, liquidas. Quae ab\nnullasque quid generis vidit doleres inmanem mediam rediit maenala parentque\ntremat obstitit.", 
-            "title": "Lambit undis fraterque natus"
+            "location": "/guides/appserver/#create-new-instance", 
+            "text": "Assuming that:   your organisation name is:  myorg  public IP of your server is:  aaa.aaa.aaa.aaa  private IP of your server is:  bbb.bbb.bbb.bbb   cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc  note  appserver --org myorg  Running this command will add new entry into  instances.json  file in  myorg/servers/appserver  folder", 
+            "title": "Create new instance"
+        }, 
+        {
+            "location": "/guides/appserver/#instances-file", 
+            "text": "instances.json  contains list of every  appserver  instance available in current organisation  \n[\n    {\n         publicIP :  aaa.aaa.aaa.aaa , \n         description :  note , \n         role :  default , \n         name :  appserver_o6hbh , \n         privateIP :  bbb.bbb.bbb.bbb \n    }\n]  each instance has following fields:     Field  Meaning      publicIP  Public IP address of this server    privateIP  IP address of this server on the private network    name  unique instance name    role  always  default    description  optional text to describe this instance", 
+            "title": "Instances file"
+        }, 
+        {
+            "location": "/guides/appserver/#credentials-file", 
+            "text": "Instances are automatically configured to use sshkeys as ssh auth mecanism.  However, users still require passwords to perform system administrator operations   Assuming that your organisation name is:  myorg , username and password of sudo capable user is stored in  myorg/servers/appserver/access.ini  file:  [sudouser]\nusername=randomsudousername\npassword=RaNd0mP@5SW0rD", 
+            "title": "Credentials file"
+        }, 
+        {
+            "location": "/guides/appserver/#apply-configuration-12", 
+            "text": "First configuration step connects as root and creates sudo capable user using  access.ini  configuration.  Usualy you only run this command once, or/and everytime you add new  appserver  instance to your organisation.  cmdcenter.py setup server --step 1 appserver --org myorg", 
+            "title": "Apply configuration (1/2)"
+        }, 
+        {
+            "location": "/guides/appserver/#apply-configuration-22", 
+            "text": "Second configuration step connects as sudo capable user and installs minimum viable software:   docker  git  nginx  fail2ban   It also copies configutation files  cmdcenter.py setup server --step 2 appserver --org myorg", 
+            "title": "Apply configuration (2/2)"
+        }, 
+        {
+            "location": "/guides/appserver/#show-servers", 
+            "text": "You can use following command to show servers in your organisation  cmdcenter.py show servers --org myorg  Here is a list of server groups i found in  myorg  organisation:\n\nappserver\n  appserver_5davo :: default :: appserver 01\n    publicIP  : aaa.aaa.aaa.aaa\n    privateIP : bbb.bbb.bbb.bbb\n\nmysql5server\n  mysql5server_3mqdG :: default :: main mysql5server\n    publicIP  : ccc.ccc.ccc.ccc\n    privateIP : ddd.ddd.ddd.ddd\n\nmongo3server\n  mongo3server_lEdlj :: default :: main mongo3server\n    publicIP  : eee.eee.eee.eee\n    privateIP : fff.fff.fff.fff", 
+            "title": "Show servers"
+        }, 
+        {
+            "location": "/guides/appserver/#ssh", 
+            "text": "You can SSH to any server  appserver  instance.  Here is a command to lisy your SSH options for  myorg  organisation  cmdcenter.py ssh appserver --org myorg  USAGE: cmdcenter.py ssh SERVERGROUP USERNAME HOSTNAME\n\nHere is a list of servers you can SSH:\n\n  cmdcenter.py ssh appserver randomsudousername aaa.aaa.aaa.aaa --org myorg\n  cmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg\n\n  cmdcenter.py ssh mysql5server randomsudousername ccc.ccc.ccc.ccc --org myorg\n  cmdcenter.py ssh mysql5server root ccc.ccc.ccc.ccc --org myorg\n\n  cmdcenter.py ssh mongo3server randomsudousername eee.eee.eee.eee --org myorg\n  cmdcenter.py ssh mongo3server root eee.eee.eee.eee --org myorg  Then, simply pick an instance and user to SSH  cmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg  You do not need to enter passwords, these are automatically picked up from your  access.ini  config files in combination with ssh keys.", 
+            "title": "SSH"
+        }, 
+        {
+            "location": "/guides/mongo3server/", 
+            "text": "Intro\n\n\nMongoDB server is a server type that will let us easily setup and manage mongo users \n databases.\n\n\nEvery \nappserver\n instance gets access to mongodb instances inside private network.\n\n\nBy default, \nmongo3server\n instances also listen on public network interface. This behaviour can be disabled.\n\n\n\n\n IMPORTANT: One \nmongo3server\n instance has multiple databases, but only one mongod daemon \n\n\nCreate new instance\n\n\nAssuming that:\n\n\n\n\nyour organisation name is: \nmyorg\n\n\npublic IP of your server is: \naaa.aaa.aaa.aaa\n\n\nprivate IP of your server is: \nbbb.bbb.bbb.bbb\n\n\n\n\ncmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc \nnote\n mongo3server --org myorg\n\n\n\n\nRunning this command will add new entry into \ninstances.json\n file in \nmyorg/servers/mongo3server\n folder\n\n\nInstances file\n\n\ninstances.json\n contains list of every \nmongo3server\n instance available in current organisation\n\n\n\n[\n    {\n        \npublicIP\n: \naaa.aaa.aaa.aaa\n, \n        \ndescription\n: \nnote\n, \n        \nrole\n: \ndefault\n, \n        \nname\n: \nappserver_o6hbh\n, \n        \nprivateIP\n: \nbbb.bbb.bbb.bbb\n\n    }\n]\n\n\n\n\n\neach instance has following fields:\n\n\n\n\n\n\n\n\nField\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\npublicIP\n\n\nPublic IP address of this server\n\n\n\n\n\n\nprivateIP\n\n\nIP address of this server on the private network\n\n\n\n\n\n\nname\n\n\nunique instance name\n\n\n\n\n\n\nrole\n\n\nalways \ndefault\n\n\n\n\n\n\ndescription\n\n\noptional text to describe this instance\n\n\n\n\n\n\n\n\nCredentials file\n\n\nInstances are automatically configured to use sshkeys as ssh auth mecanism.\n\n\nHowever, users still require passwords to perform system administrator operations \n\n\nAssuming that your organisation name is: \nmyorg\n, username and password of sudo capable user is stored in \nmyorg/servers/mongo3server/access.ini\n file:\n\n\nsudouser\n section defines sudo capable user\n\n\nmongoadmin\n section defines mongodb super admin\n\n\nmongobackup\n section defines dedicated backup user for mongodb \n\n\n[sudouser]\nusername=randomsudousername\npassword=RaNd0mP@5SW0rD\n\n[mongoadmin]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD\n\n[mongobackup]\nusername=randommongobackup\npassword=RaNd0mP@5SW0rD\n\n\n\n\n\n\nApply configuration (1/3)\n\n\nFirst configuration step connects as root and creates sudo capable user using \naccess.ini\n configuration.\n\n\nUsualy you only run this command once, or/and everytime you add new \nmongo3server\n instance to your organisation.\n\n\ncmdcenter.py setup server --step 1 mongo3server --org myorg\n\n\n\n\nApply configuration (2/3)\n\n\nSecond configuration step connects as sudo capable user and installs minimum viable software:\n\n\n\n\ndocker\n\n\nmongodb (it runs as docker container)\n\n\nfail2ban\n\n\n\n\nIt also copies configutation files.\n\n\nWARNING: this step involves downtime\n\n\nif all you want is to add/update users, you must run deploy command below\n\n\ncmdcenter.py setup server --step 2 mongo3server --org myorg\n\n\n\n\nApply configuration (3/3)\n\n\nLast configuration step must be run everytime you create/update/remove a database user.\n\n\ncmdcenter.py setup server mongo3server --step deploy --org myorg", 
+            "title": "MongoDB Server"
+        }, 
+        {
+            "location": "/guides/mongo3server/#intro", 
+            "text": "MongoDB server is a server type that will let us easily setup and manage mongo users   databases.  Every  appserver  instance gets access to mongodb instances inside private network.  By default,  mongo3server  instances also listen on public network interface. This behaviour can be disabled.    IMPORTANT: One  mongo3server  instance has multiple databases, but only one mongod daemon", 
+            "title": "Intro"
+        }, 
+        {
+            "location": "/guides/mongo3server/#create-new-instance", 
+            "text": "Assuming that:   your organisation name is:  myorg  public IP of your server is:  aaa.aaa.aaa.aaa  private IP of your server is:  bbb.bbb.bbb.bbb   cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc  note  mongo3server --org myorg  Running this command will add new entry into  instances.json  file in  myorg/servers/mongo3server  folder", 
+            "title": "Create new instance"
+        }, 
+        {
+            "location": "/guides/mongo3server/#instances-file", 
+            "text": "instances.json  contains list of every  mongo3server  instance available in current organisation  \n[\n    {\n         publicIP :  aaa.aaa.aaa.aaa , \n         description :  note , \n         role :  default , \n         name :  appserver_o6hbh , \n         privateIP :  bbb.bbb.bbb.bbb \n    }\n]  each instance has following fields:     Field  Meaning      publicIP  Public IP address of this server    privateIP  IP address of this server on the private network    name  unique instance name    role  always  default    description  optional text to describe this instance", 
+            "title": "Instances file"
+        }, 
+        {
+            "location": "/guides/mongo3server/#credentials-file", 
+            "text": "Instances are automatically configured to use sshkeys as ssh auth mecanism.  However, users still require passwords to perform system administrator operations   Assuming that your organisation name is:  myorg , username and password of sudo capable user is stored in  myorg/servers/mongo3server/access.ini  file:  sudouser  section defines sudo capable user  mongoadmin  section defines mongodb super admin  mongobackup  section defines dedicated backup user for mongodb   [sudouser]\nusername=randomsudousername\npassword=RaNd0mP@5SW0rD\n\n[mongoadmin]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD\n\n[mongobackup]\nusername=randommongobackup\npassword=RaNd0mP@5SW0rD", 
+            "title": "Credentials file"
+        }, 
+        {
+            "location": "/guides/mongo3server/#apply-configuration-13", 
+            "text": "First configuration step connects as root and creates sudo capable user using  access.ini  configuration.  Usualy you only run this command once, or/and everytime you add new  mongo3server  instance to your organisation.  cmdcenter.py setup server --step 1 mongo3server --org myorg", 
+            "title": "Apply configuration (1/3)"
+        }, 
+        {
+            "location": "/guides/mongo3server/#apply-configuration-23", 
+            "text": "Second configuration step connects as sudo capable user and installs minimum viable software:   docker  mongodb (it runs as docker container)  fail2ban   It also copies configutation files.  WARNING: this step involves downtime  if all you want is to add/update users, you must run deploy command below  cmdcenter.py setup server --step 2 mongo3server --org myorg", 
+            "title": "Apply configuration (2/3)"
+        }, 
+        {
+            "location": "/guides/mongo3server/#apply-configuration-33", 
+            "text": "Last configuration step must be run everytime you create/update/remove a database user.  cmdcenter.py setup server mongo3server --step deploy --org myorg", 
+            "title": "Apply configuration (3/3)"
+        }, 
+        {
+            "location": "/guides/mysql5server/", 
+            "text": "Intro\n\n\nMySQL server is a server type that will let us easily setup and manage mysql users \n databases.\n\n\nEvery \nappserver\n instance gets access to mysql instances inside private network.\n\n\nBy default, \nmysql5server\n instances also listen on public network interface. This behaviour can be disabled.\n\n\n IMPORTANT: One \nmysql5server\n instance has multiple databases, but only one mysqld daemon \n\n\n\n\nCreate new instance\n\n\nAssuming that:\n\n\n\n\nyour organisation name is: \nmyorg\n\n\npublic IP of your server is: \naaa.aaa.aaa.aaa\n\n\nprivate IP of your server is: \nbbb.bbb.bbb.bbb\n\n\n\n\ncmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc \nnote\n mysql5server --org myorg\n\n\n\n\nRunning this command will add new entry into \ninstances.json\n file in \nmyorg/servers/mysql5server\n folder\n\n\nInstances file\n\n\ninstances.json\n contains list of every \nmysql5server\n instance available in current organisation\n\n\n\n[\n    {\n        \npublicIP\n: \naaa.aaa.aaa.aaa\n, \n        \ndescription\n: \nnote\n, \n        \nrole\n: \ndefault\n, \n        \nname\n: \nappserver_o6hbh\n, \n        \nprivateIP\n: \nbbb.bbb.bbb.bbb\n\n    }\n]\n\n\n\n\n\neach instance has following fields:\n\n\n\n\n\n\n\n\nField\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\npublicIP\n\n\nPublic IP address of this server\n\n\n\n\n\n\nprivateIP\n\n\nIP address of this server on the private network\n\n\n\n\n\n\nname\n\n\nunique instance name\n\n\n\n\n\n\nrole\n\n\nalways \ndefault\n\n\n\n\n\n\ndescription\n\n\noptional text to describe this instance\n\n\n\n\n\n\n\n\nCredentials file\n\n\nInstances are automatically configured to use sshkeys as ssh auth mecanism.\n\n\nHowever, users still require passwords to perform system administrator operations \n\n\nAssuming that your organisation name is: \nmyorg\n, username and password of sudo capable user is stored in \nmyorg/servers/mysql5server/access.ini\n file:\n\n\nsudouser\n section defines sudo capable user\n\n\nmongoadmin\n section defines mysql super admin\n\n\n[sudouser]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD\n\n[mysqladmin]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD\n\n\n\n\nApply configuration (1/3)\n\n\nFirst configuration step connects as root and creates sudo capable user using \naccess.ini\n configuration.\n\n\nUsualy you only run this command once, or/and everytime you add new \nmysql5server\n instance to your organisation.\n\n\ncmdcenter.py setup server --step 1 mysql5server --org myorg\n\n\n\n\nApply configuration (2/3)\n\n\nSecond configuration step connects as sudo capable user and installs minimum viable software:\n\n\n\n\ndocker\n\n\nmysql (it runs as docker container)\n\n\nfail2ban\n\n\n\n\nIt also copies configutation files.\n\n\nWARNING: this step involves downtime\n\n\nif all you want is to add/update users, you must run deploy command below\n\n\ncmdcenter.py setup server --step 2 mysql5server --org myorg\n\n\n\n\nApply configuration (3/3)\n\n\nLast configuration step must be run everytime you create/update/remove a database user.\n\n\ncmdcenter.py setup server mysql5server --step deploy --org myorg", 
+            "title": "MySQL Server"
+        }, 
+        {
+            "location": "/guides/mysql5server/#intro", 
+            "text": "MySQL server is a server type that will let us easily setup and manage mysql users   databases.  Every  appserver  instance gets access to mysql instances inside private network.  By default,  mysql5server  instances also listen on public network interface. This behaviour can be disabled.   IMPORTANT: One  mysql5server  instance has multiple databases, but only one mysqld daemon", 
+            "title": "Intro"
+        }, 
+        {
+            "location": "/guides/mysql5server/#create-new-instance", 
+            "text": "Assuming that:   your organisation name is:  myorg  public IP of your server is:  aaa.aaa.aaa.aaa  private IP of your server is:  bbb.bbb.bbb.bbb   cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc  note  mysql5server --org myorg  Running this command will add new entry into  instances.json  file in  myorg/servers/mysql5server  folder", 
+            "title": "Create new instance"
+        }, 
+        {
+            "location": "/guides/mysql5server/#instances-file", 
+            "text": "instances.json  contains list of every  mysql5server  instance available in current organisation  \n[\n    {\n         publicIP :  aaa.aaa.aaa.aaa , \n         description :  note , \n         role :  default , \n         name :  appserver_o6hbh , \n         privateIP :  bbb.bbb.bbb.bbb \n    }\n]  each instance has following fields:     Field  Meaning      publicIP  Public IP address of this server    privateIP  IP address of this server on the private network    name  unique instance name    role  always  default    description  optional text to describe this instance", 
+            "title": "Instances file"
+        }, 
+        {
+            "location": "/guides/mysql5server/#credentials-file", 
+            "text": "Instances are automatically configured to use sshkeys as ssh auth mecanism.  However, users still require passwords to perform system administrator operations   Assuming that your organisation name is:  myorg , username and password of sudo capable user is stored in  myorg/servers/mysql5server/access.ini  file:  sudouser  section defines sudo capable user  mongoadmin  section defines mysql super admin  [sudouser]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD\n\n[mysqladmin]\nusername=randommongoadmin\npassword=RaNd0mP@5SW0rD", 
+            "title": "Credentials file"
+        }, 
+        {
+            "location": "/guides/mysql5server/#apply-configuration-13", 
+            "text": "First configuration step connects as root and creates sudo capable user using  access.ini  configuration.  Usualy you only run this command once, or/and everytime you add new  mysql5server  instance to your organisation.  cmdcenter.py setup server --step 1 mysql5server --org myorg", 
+            "title": "Apply configuration (1/3)"
+        }, 
+        {
+            "location": "/guides/mysql5server/#apply-configuration-23", 
+            "text": "Second configuration step connects as sudo capable user and installs minimum viable software:   docker  mysql (it runs as docker container)  fail2ban   It also copies configutation files.  WARNING: this step involves downtime  if all you want is to add/update users, you must run deploy command below  cmdcenter.py setup server --step 2 mysql5server --org myorg", 
+            "title": "Apply configuration (2/3)"
+        }, 
+        {
+            "location": "/guides/mysql5server/#apply-configuration-33", 
+            "text": "Last configuration step must be run everytime you create/update/remove a database user.  cmdcenter.py setup server mysql5server --step deploy --org myorg", 
+            "title": "Apply configuration (3/3)"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/", 
+            "text": "Intro\n\n\nBeanstalk server is a server type that will let us easily setup and manage \nbeanstalkd\n daemons.\n\n\nBeanstalkd\n is designed for use exclusively in trusted environments and doesn't have authentication mecanism.\nFor this reason beanstalkd instances only listen on private network interface.\n\n\nEvery \nappserver\n instance gets access to every beanstalk instance inside your private network.\n\n\nEach time you require a beanstalkd service in one of your apps, an independent beanstalkd daemon is created on your \nbeanstalkserver\n instance, and an available port is automatically assigned.\n\n\n IMPORTANT: One \nbeanstalkserver\n instance runs multiple beanstalkd daemons \n\n\n\n\nCreate new instance\n\n\nAssuming that:\n\n\n\n\nyour organisation name is: \nmyorg\n\n\npublic IP of your server is: \naaa.aaa.aaa.aaa\n\n\nprivate IP of your server is: \nbbb.bbb.bbb.bbb\n\n\n\n\ncmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc \nnote\n beanstalkserver --org myorg\n\n\n\n\nRunning this command will add new entry into \ninstances.json\n file in \nmyorg/servers/beanstalkserver\n folder\n\n\nInstances file\n\n\ninstances.json\n contains list of every \nbeanstalkserver\n instance available in current organisation\n\n\n remember that one \nbeanstalkserver\n instance can run multiple beanstalkd daemons \n\n\n\n[\n    {\n        \npublicIP\n: \naaa.aaa.aaa.aaa\n, \n        \ndescription\n: \nnote\n, \n        \nrole\n: \ndefault\n, \n        \nname\n: \nbeanstalkserver_o6hbh\n, \n        \nprivateIP\n: \nbbb.bbb.bbb.bbb\n\n    }\n]\n\n\n\n\n\neach instance has following fields:\n\n\n\n\n\n\n\n\nField\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\npublicIP\n\n\nPublic IP address of this server\n\n\n\n\n\n\nprivateIP\n\n\nIP address of this server on the private network\n\n\n\n\n\n\nname\n\n\nunique instance name\n\n\n\n\n\n\nrole\n\n\nalways \ndefault\n\n\n\n\n\n\ndescription\n\n\noptional text to describe this instance\n\n\n\n\n\n\n\n\nApply configuration (1/3)\n\n\nFirst configuration step connects as root and creates sudo capable user using \naccess.ini\n configuration.\n\n\nUsualy you only run this command once, or/and everytime you add new \nbeanstalkserver\n instance to your organisation.\n\n\ncmdcenter.py setup server --step 1 beanstalkserver --org myorg\n\n\n\n\nApply configuration (2/3)\n\n\nSecond configuration step connects as sudo capable user and installs minimum viable software:\n\n\n\n\ndocker\n\n\nbeanstalkd (it runs in docker containers)\n\n\nfail2ban\n\n\n\n\nWARNING: this step involves downtime\n\n\nif all you want is to add daemons, you must run deploy command below instead\n\n\ncmdcenter.py setup server --step 2 beanstalkserver --org myorg\n\n\n\n\nApply configuration (3/3)\n\n\nLast configuration step must be run everytime you create/update/remove a beanstalkd daemon.\n\n\ncmdcenter.py setup server beanstalkserver --step deploy --org myorg", 
+            "title": "Beanstalk Server"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#intro", 
+            "text": "Beanstalk server is a server type that will let us easily setup and manage  beanstalkd  daemons.  Beanstalkd  is designed for use exclusively in trusted environments and doesn't have authentication mecanism.\nFor this reason beanstalkd instances only listen on private network interface.  Every  appserver  instance gets access to every beanstalk instance inside your private network.  Each time you require a beanstalkd service in one of your apps, an independent beanstalkd daemon is created on your  beanstalkserver  instance, and an available port is automatically assigned.   IMPORTANT: One  beanstalkserver  instance runs multiple beanstalkd daemons", 
+            "title": "Intro"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#create-new-instance", 
+            "text": "Assuming that:   your organisation name is:  myorg  public IP of your server is:  aaa.aaa.aaa.aaa  private IP of your server is:  bbb.bbb.bbb.bbb   cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc  note  beanstalkserver --org myorg  Running this command will add new entry into  instances.json  file in  myorg/servers/beanstalkserver  folder", 
+            "title": "Create new instance"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#instances-file", 
+            "text": "instances.json  contains list of every  beanstalkserver  instance available in current organisation   remember that one  beanstalkserver  instance can run multiple beanstalkd daemons   \n[\n    {\n         publicIP :  aaa.aaa.aaa.aaa , \n         description :  note , \n         role :  default , \n         name :  beanstalkserver_o6hbh , \n         privateIP :  bbb.bbb.bbb.bbb \n    }\n]  each instance has following fields:     Field  Meaning      publicIP  Public IP address of this server    privateIP  IP address of this server on the private network    name  unique instance name    role  always  default    description  optional text to describe this instance", 
+            "title": "Instances file"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#apply-configuration-13", 
+            "text": "First configuration step connects as root and creates sudo capable user using  access.ini  configuration.  Usualy you only run this command once, or/and everytime you add new  beanstalkserver  instance to your organisation.  cmdcenter.py setup server --step 1 beanstalkserver --org myorg", 
+            "title": "Apply configuration (1/3)"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#apply-configuration-23", 
+            "text": "Second configuration step connects as sudo capable user and installs minimum viable software:   docker  beanstalkd (it runs in docker containers)  fail2ban   WARNING: this step involves downtime  if all you want is to add daemons, you must run deploy command below instead  cmdcenter.py setup server --step 2 beanstalkserver --org myorg", 
+            "title": "Apply configuration (2/3)"
+        }, 
+        {
+            "location": "/guides/beanstalkserver/#apply-configuration-33", 
+            "text": "Last configuration step must be run everytime you create/update/remove a beanstalkd daemon.  cmdcenter.py setup server beanstalkserver --step deploy --org myorg", 
+            "title": "Apply configuration (3/3)"
+        }, 
+        {
+            "location": "/about/license/", 
+            "text": "MIT\n\n\nCopyright (c) 2014, Dmitri Chapkine\n\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/about/license/#mit", 
+            "text": "Copyright (c) 2014, Dmitri Chapkine  Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.", 
+            "title": "MIT"
+        }, 
+        {
+            "location": "/about/release-notes/", 
+            "text": "Release Notes\n\n\nCMDCENTER v0.1 (xx.12.2015)\n\n\nInitial public release: \n comming soon \n\n\nCMDCENTER (private versions)\n\n\nUnreleased private versions ( late 2013 - 2015 )", 
+            "title": "Release Notes"
+        }, 
+        {
+            "location": "/about/release-notes/#release-notes", 
+            "text": "CMDCENTER v0.1 (xx.12.2015)  Initial public release:   comming soon   CMDCENTER (private versions)  Unreleased private versions ( late 2013 - 2015 )", 
+            "title": "Release Notes"
         }
     ]
 }

@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>CMDCENTER</title>
+	<title>Install instructions - CMDCENTER</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -53,7 +53,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">CMDCENTER</a>
+            <a class="navbar-brand" href="../..">CMDCENTER</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -63,25 +63,25 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basics <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="basics/intro/">Introduction</a>
+    <a href="../intro/">Introduction</a>
 </li>
 
                         
                             
-<li >
-    <a href="basics/install/">Install instructions</a>
+<li class="active">
+    <a href="./">Install instructions</a>
 </li>
 
                         
@@ -96,25 +96,25 @@
                         
                             
 <li >
-    <a href="guides/appserver/">Application Server</a>
+    <a href="../../guides/appserver/">Application Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mongo3server/">MongoDB Server</a>
+    <a href="../../guides/mongo3server/">MongoDB Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mysql5server/">MySQL Server</a>
+    <a href="../../guides/mysql5server/">MySQL Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/beanstalkserver/">Beanstalk Server</a>
+    <a href="../../guides/beanstalkserver/">Beanstalk Server</a>
 </li>
 
                         
@@ -129,13 +129,13 @@
                         
                             
 <li >
-    <a href="about/license/">License</a>
+    <a href="../../about/license/">License</a>
 </li>
 
                         
                             
 <li >
-    <a href="about/release-notes/">Release Notes</a>
+    <a href="../../about/release-notes/">Release Notes</a>
 </li>
 
                         
@@ -153,13 +153,13 @@
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../intro/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="basics/intro/">
+                        <a rel="prev" href="../../guides/appserver/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -175,48 +175,60 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#command-center">Command Center ?</a></li>
+        <li class="main active"><a href="#install-windows-78-cygwin-only">INSTALL WINDOWS 7/8 (CYGWIN ONLY)</a></li>
         
     
-        <li class="main "><a href="#basics">Basics</a></li>
-        
-            <li><a href="#-install-instructions-for-linux">- Install instructions for Linux</a></li>
-        
-            <li><a href="#-install-instructions-for-macosx">- Install instructions for Macosx</a></li>
-        
-            <li><a href="#-install-instructions-for-windows">- Install instructions for Windows</a></li>
+        <li class="main "><a href="#install-macosx">INSTALL MACOSX</a></li>
         
     
-        <li class="main "><a href="#guides">Guides</a></li>
-        
-            <li><a href="#-application-server">- Application Server</a></li>
-        
-            <li><a href="#-mongodb-server">- MongoDB Server</a></li>
-        
-            <li><a href="#-mysql-server">- MySQL Server</a></li>
-        
-            <li><a href="#-beanstalk-server">- Beanstalk Server</a></li>
+        <li class="main "><a href="#install-ubuntu-1404-lts">INSTALL UBUNTU 14.04 LTS</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="command-center">Command Center ?</h3>
-<p>Command Center is an infrastructure and application lifecycle managment tool optimized for developpers.</p>
-<p>It lets you run complex, cloud agnostic infrastructure using developper friendly cli tool and json configuration. </p>
-<p>Written with real world applications in mind, it includes simple but powerful application lifecycle  managment tools.</p>
-<p>Every command is designed to perfectly match what you want to do and give you the shortest path to do it.</p>
-<p><a href="./basics/intro">Read more</a></p>
-<h3 id="basics">Basics</h3>
-<h4 id="-install-instructions-for-linux">- <a href="./basics/install">Install instructions for Linux</a></h4>
-<h4 id="-install-instructions-for-macosx">- <a href="./basics/install">Install instructions for Macosx</a></h4>
-<h4 id="-install-instructions-for-windows">- <a href="./basics/install">Install instructions for Windows</a></h4>
-<h3 id="guides">Guides</h3>
-<h4 id="-application-server">- <a href="./guides/appserver">Application Server</a></h4>
-<h4 id="-mongodb-server">- <a href="./guides/mongo3server">MongoDB Server</a></h4>
-<h4 id="-mysql-server">- <a href="./guides/mysql5server">MySQL Server</a></h4>
-<h4 id="-beanstalk-server">- <a href="./guides/beanstalkserver">Beanstalk Server</a></h4></div>
+<h2 id="install-windows-78-cygwin-only">INSTALL WINDOWS 7/8 (CYGWIN ONLY)</h2>
+<p>Fully working instructions to install all dependencies on windows (using cygwin)</p>
+<p>Before installing, please make sure you have a compiler installed.
+It is needed for "pycrypto" module.
+Here is a list of cygwin packages you may install to get a working compiler:</p>
+<pre><code>- libgcc
+- gcc-core
+- gcc-g++
+- colorgcc
+</code></pre>
+
+<p>install python 2.7</p>
+<p>install other dependencies:</p>
+<pre><code>easy_install --upgrade pip
+pip install fabric
+pip install ecdsa
+pip install pycrypto
+pip install configparser
+</code></pre>
+
+<p>After that you will need to add a $CMDCENTER_DATAHOME env var</p>
+<p>Then append _bin path to $PATH</p>
+<h2 id="install-macosx">INSTALL MACOSX</h2>
+<p>Fully working instructions to install all dependencies on macosx</p>
+<pre><code>python --version &amp;&amp; sudo easy_install --upgrade pip &amp;&amp; sudo -H pip install fabric &amp;&amp; sudo -H pip install ecdsa &amp;&amp; sudo -H pip install pycrypto &amp;&amp; sudo -H pip install configparser
+</code></pre>
+
+<p>After that you will need to add a $CMDCENTER_DATAHOME env var</p>
+<p>Then append _bin path to $PATH</p>
+<h2 id="install-ubuntu-1404-lts">INSTALL UBUNTU 14.04 LTS</h2>
+<p>Run this in your terminal to install dependencies</p>
+<pre><code>python --version &amp;&amp; sudo apt-get -y install python-pip &amp;&amp; sudo -H pip install fabric &amp;&amp; sudo -H pip install ecdsa &amp;&amp; sudo -H pip install pycrypto &amp;&amp; sudo -H pip install configparser
+</code></pre>
+
+<p>After that you will need to add a $CMDCENTER_DATAHOME env var:</p>
+<pre><code>export CMDCENTER_DATAHOME=&quot;$HOME/.cmdcenter/data&quot;
+</code></pre>
+
+<p>Then append _bin path to $PATH</p>
+<pre><code>export PATH=&quot;$HOME/.cmdcenter/src/scripts/_bin:$PATH&quot;
+</code></pre></div>
             
         </div>
 
@@ -226,12 +238,12 @@
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -260,8 +272,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.14.0
-Build Date UTC : 2015-11-24 21:42:51.586453
--->

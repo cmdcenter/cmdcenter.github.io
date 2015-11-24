@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>CMDCENTER</title>
+	<title>Introduction - CMDCENTER</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -53,7 +53,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">CMDCENTER</a>
+            <a class="navbar-brand" href="../..">CMDCENTER</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -63,25 +63,25 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basics <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="basics/intro/">Introduction</a>
+<li class="active">
+    <a href="./">Introduction</a>
 </li>
 
                         
                             
 <li >
-    <a href="basics/install/">Install instructions</a>
+    <a href="../install/">Install instructions</a>
 </li>
 
                         
@@ -96,25 +96,25 @@
                         
                             
 <li >
-    <a href="guides/appserver/">Application Server</a>
+    <a href="../../guides/appserver/">Application Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mongo3server/">MongoDB Server</a>
+    <a href="../../guides/mongo3server/">MongoDB Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mysql5server/">MySQL Server</a>
+    <a href="../../guides/mysql5server/">MySQL Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/beanstalkserver/">Beanstalk Server</a>
+    <a href="../../guides/beanstalkserver/">Beanstalk Server</a>
 </li>
 
                         
@@ -129,13 +129,13 @@
                         
                             
 <li >
-    <a href="about/license/">License</a>
+    <a href="../../about/license/">License</a>
 </li>
 
                         
                             
 <li >
-    <a href="about/release-notes/">Release Notes</a>
+    <a href="../../about/release-notes/">Release Notes</a>
 </li>
 
                         
@@ -153,13 +153,13 @@
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="basics/intro/">
+                        <a rel="prev" href="../install/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -178,24 +178,28 @@
         <li class="main active"><a href="#command-center">Command Center ?</a></li>
         
     
-        <li class="main "><a href="#basics">Basics</a></li>
-        
-            <li><a href="#-install-instructions-for-linux">- Install instructions for Linux</a></li>
-        
-            <li><a href="#-install-instructions-for-macosx">- Install instructions for Macosx</a></li>
-        
-            <li><a href="#-install-instructions-for-windows">- Install instructions for Windows</a></li>
+        <li class="main "><a href="#what-kind-of-infrastructure">What kind of infrastructure ?</a></li>
         
     
-        <li class="main "><a href="#guides">Guides</a></li>
+        <li class="main "><a href="#how-is-it-better-than-writing-my-own-bash-scripts">How is it better than writing my own bash scripts ?</a></li>
         
-            <li><a href="#-application-server">- Application Server</a></li>
+    
+        <li class="main "><a href="#i-am-affraid-to-lose-control">I am affraid to lose control</a></li>
         
-            <li><a href="#-mongodb-server">- MongoDB Server</a></li>
+    
+        <li class="main "><a href="#you-said-applications">You said applications ?</a></li>
         
-            <li><a href="#-mysql-server">- MySQL Server</a></li>
+    
+        <li class="main "><a href="#what-kind-of-applications">What kind of applications ?</a></li>
         
-            <li><a href="#-beanstalk-server">- Beanstalk Server</a></li>
+    
+        <li class="main "><a href="#how-about-operations-engeneers">How about operations engeneers ?</a></li>
+        
+    
+        <li class="main "><a href="#cloud-agnostic">Cloud agnostic ?</a></li>
+        
+    
+        <li class="main "><a href="#what-if-you-dont-support-y">What if you dont support Y ?</a></li>
         
     
     </ul>
@@ -203,20 +207,60 @@
                 <div class="col-md-9" role="main">
 
 <h3 id="command-center">Command Center ?</h3>
-<p>Command Center is an infrastructure and application lifecycle managment tool optimized for developpers.</p>
+<p>CmdCenter is an infrastructure and application lifecycle managment tool optimized for developpers.</p>
 <p>It lets you run complex, cloud agnostic infrastructure using developper friendly cli tool and json configuration. </p>
 <p>Written with real world applications in mind, it includes simple but powerful application lifecycle  managment tools.</p>
 <p>Every command is designed to perfectly match what you want to do and give you the shortest path to do it.</p>
-<p><a href="./basics/intro">Read more</a></p>
-<h3 id="basics">Basics</h3>
-<h4 id="-install-instructions-for-linux">- <a href="./basics/install">Install instructions for Linux</a></h4>
-<h4 id="-install-instructions-for-macosx">- <a href="./basics/install">Install instructions for Macosx</a></h4>
-<h4 id="-install-instructions-for-windows">- <a href="./basics/install">Install instructions for Windows</a></h4>
-<h3 id="guides">Guides</h3>
-<h4 id="-application-server">- <a href="./guides/appserver">Application Server</a></h4>
-<h4 id="-mongodb-server">- <a href="./guides/mongo3server">MongoDB Server</a></h4>
-<h4 id="-mysql-server">- <a href="./guides/mysql5server">MySQL Server</a></h4>
-<h4 id="-beanstalk-server">- <a href="./guides/beanstalkserver">Beanstalk Server</a></h4></div>
+<h3 id="what-kind-of-infrastructure">What kind of infrastructure ?</h3>
+<p>It manages all kind of server types:</p>
+<ul>
+<li>application servers, running docker containers</li>
+<li>mysql databases (mysql, postgresql, ...)</li>
+<li>nosql databases (mongodb, couchdb, ...)</li>
+<li>cache servers (memcache, ...)</li>
+<li>work queues (beanstalkd, ...)</li>
+<li>ci servers (jenkins, ...)</li>
+<li>distributes file systems (GlusterFS, BeeGFS, ...)</li>
+<li>S3 like object stores (RiakCS, ...)</li>
+<li>...</li>
+</ul>
+<h3 id="how-is-it-better-than-writing-my-own-bash-scripts">How is it better than writing my own bash scripts ?</h3>
+<p>You dont have to write it anymore, cmdcenter takes care of traslating simple commands into complex scripts that run serverside.</p>
+<p>It saves you tons of time, especially if you manage a lot of projects involving varied software stacks.</p>
+<p>Manually SSH to the server to make a change will become the exception rather than the rule</p>
+<h3 id="i-am-affraid-to-lose-control">I am affraid to lose control</h3>
+<p>Unlike other infrastructure tools on the marker selling you too much magic, cmdcenter requires you to understand what you are doing.</p>
+<p>Every command is designed to perfectly match what you want to do and give you the shortest path to do it.</p>
+<h3 id="you-said-applications">You said applications ?</h3>
+<p>Yes, cmdcenter also manages application creation, deployment, continious integration, environments and backups</p>
+<p>create:</p>
+<pre><code class="bash">cmdcenter.py create app nodejs --name myapp_staging --domain myapp.com --git git@github.com:someuser/myapp.git --wwwdir &quot;src/www&quot; --env staging --org myorg
+</code></pre>
+
+<p>deploy:</p>
+<pre><code class="bash">cmdcenter.py deploy app myapp_staging --org myorg
+</code></pre>
+
+<p>backup:</p>
+<pre><code class="bash">cmdcenter.py backup app myapp_staging --org myorg
+</code></pre>
+
+<h3 id="what-kind-of-applications">What kind of applications ?</h3>
+<p>You can literally run any stack or application you want using cmdcenter.</p>
+<p>Under the hood, cmdcenter uses docker containers for each application.</p>
+<p>Not happy with pregenerated Dockerfile ? Simply write your own !</p>
+<h3 id="how-about-operations-engeneers">How about operations engeneers ?</h3>
+<p>CmdCenter works best inside organisations with strong devops culture.</p>
+<p>However it doesn't force you to share access to staging/test/production environments, so you can still separate dev and ops if you want.</p>
+<h3 id="cloud-agnostic">Cloud agnostic ?</h3>
+<p>Yes, the only few requirements are:
+- your server provider has to support private networking
+- all server instances must live on same datacenter
+- base server image must be ubuntu 14.04 LTS, which is available on any VPS/dedicated server provider</p>
+<p><em>NOTE:</em> Other base images will be supported later</p>
+<h3 id="what-if-you-dont-support-y">What if you dont support Y ?</h3>
+<p>CmdCenter is open source and MIT licenced, it can support virtualy any server type.</p>
+<p>Feature and pull requests are more than welcome.</p></div>
             
         </div>
 
@@ -226,12 +270,12 @@
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -260,8 +304,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.14.0
-Build Date UTC : 2015-11-24 21:42:51.586453
--->

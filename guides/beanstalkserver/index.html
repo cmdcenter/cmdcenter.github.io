@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>CMDCENTER</title>
+	<title>Beanstalk Server - CMDCENTER</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -53,7 +53,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">CMDCENTER</a>
+            <a class="navbar-brand" href="../..">CMDCENTER</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -63,8 +63,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -75,13 +75,13 @@
                         
                             
 <li >
-    <a href="basics/intro/">Introduction</a>
+    <a href="../../basics/intro/">Introduction</a>
 </li>
 
                         
                             
 <li >
-    <a href="basics/install/">Install instructions</a>
+    <a href="../../basics/install/">Install instructions</a>
 </li>
 
                         
@@ -90,31 +90,31 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="guides/appserver/">Application Server</a>
+    <a href="../appserver/">Application Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mongo3server/">MongoDB Server</a>
+    <a href="../mongo3server/">MongoDB Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="guides/mysql5server/">MySQL Server</a>
+    <a href="../mysql5server/">MySQL Server</a>
 </li>
 
                         
                             
-<li >
-    <a href="guides/beanstalkserver/">Beanstalk Server</a>
+<li class="active">
+    <a href="./">Beanstalk Server</a>
 </li>
 
                         
@@ -129,13 +129,13 @@
                         
                             
 <li >
-    <a href="about/license/">License</a>
+    <a href="../../about/license/">License</a>
 </li>
 
                         
                             
 <li >
-    <a href="about/release-notes/">Release Notes</a>
+    <a href="../../about/release-notes/">Release Notes</a>
 </li>
 
                         
@@ -153,13 +153,13 @@
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../mysql5server/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="basics/intro/">
+                        <a rel="prev" href="../../about/license/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -175,48 +175,116 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#command-center">Command Center ?</a></li>
+        <li class="main active"><a href="#intro">Intro</a></li>
         
     
-        <li class="main "><a href="#basics">Basics</a></li>
-        
-            <li><a href="#-install-instructions-for-linux">- Install instructions for Linux</a></li>
-        
-            <li><a href="#-install-instructions-for-macosx">- Install instructions for Macosx</a></li>
-        
-            <li><a href="#-install-instructions-for-windows">- Install instructions for Windows</a></li>
+        <li class="main "><a href="#create-new-instance">Create new instance</a></li>
         
     
-        <li class="main "><a href="#guides">Guides</a></li>
+        <li class="main "><a href="#instances-file">Instances file</a></li>
         
-            <li><a href="#-application-server">- Application Server</a></li>
+    
+        <li class="main "><a href="#apply-configuration-13">Apply configuration (1/3)</a></li>
         
-            <li><a href="#-mongodb-server">- MongoDB Server</a></li>
+    
+        <li class="main "><a href="#apply-configuration-23">Apply configuration (2/3)</a></li>
         
-            <li><a href="#-mysql-server">- MySQL Server</a></li>
-        
-            <li><a href="#-beanstalk-server">- Beanstalk Server</a></li>
+    
+        <li class="main "><a href="#apply-configuration-33">Apply configuration (3/3)</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="command-center">Command Center ?</h3>
-<p>Command Center is an infrastructure and application lifecycle managment tool optimized for developpers.</p>
-<p>It lets you run complex, cloud agnostic infrastructure using developper friendly cli tool and json configuration. </p>
-<p>Written with real world applications in mind, it includes simple but powerful application lifecycle  managment tools.</p>
-<p>Every command is designed to perfectly match what you want to do and give you the shortest path to do it.</p>
-<p><a href="./basics/intro">Read more</a></p>
-<h3 id="basics">Basics</h3>
-<h4 id="-install-instructions-for-linux">- <a href="./basics/install">Install instructions for Linux</a></h4>
-<h4 id="-install-instructions-for-macosx">- <a href="./basics/install">Install instructions for Macosx</a></h4>
-<h4 id="-install-instructions-for-windows">- <a href="./basics/install">Install instructions for Windows</a></h4>
-<h3 id="guides">Guides</h3>
-<h4 id="-application-server">- <a href="./guides/appserver">Application Server</a></h4>
-<h4 id="-mongodb-server">- <a href="./guides/mongo3server">MongoDB Server</a></h4>
-<h4 id="-mysql-server">- <a href="./guides/mysql5server">MySQL Server</a></h4>
-<h4 id="-beanstalk-server">- <a href="./guides/beanstalkserver">Beanstalk Server</a></h4></div>
+<h2 id="intro">Intro</h2>
+<p>Beanstalk server is a server type that will let us easily setup and manage <a href="http://kr.github.io/beanstalkd">beanstalkd</a> daemons.</p>
+<p><a href="http://kr.github.io/beanstalkd">Beanstalkd</a> is designed for use exclusively in trusted environments and doesn't have authentication mecanism.
+For this reason beanstalkd instances only listen on private network interface.</p>
+<p>Every <code>appserver</code> instance gets access to every beanstalk instance inside your private network.</p>
+<p>Each time you require a beanstalkd service in one of your apps, an independent beanstalkd daemon is created on your <code>beanstalkserver</code> instance, and an available port is automatically assigned.</p>
+<p><strong> IMPORTANT: One <code>beanstalkserver</code> instance runs multiple beanstalkd daemons </strong></p>
+<p><img alt="beanstalk instance" src="../../img/beanstalkserver-intro.png" /></p>
+<h2 id="create-new-instance">Create new instance</h2>
+<p>Assuming that:</p>
+<ul>
+<li>your organisation name is: <code>myorg</code></li>
+<li>public IP of your server is: <code>aaa.aaa.aaa.aaa</code></li>
+<li>private IP of your server is: <code>bbb.bbb.bbb.bbb</code></li>
+</ul>
+<pre><code>cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc &quot;note&quot; beanstalkserver --org myorg
+</code></pre>
+
+<p>Running this command will add new entry into <code>instances.json</code> file in <code>myorg/servers/beanstalkserver</code> folder</p>
+<h2 id="instances-file">Instances file</h2>
+<p><code>instances.json</code> contains list of every <code>beanstalkserver</code> instance available in current organisation</p>
+<p><strong> remember that one <code>beanstalkserver</code> instance can run multiple beanstalkd daemons </strong></p>
+<pre><code class="json">
+[
+    {
+        &quot;publicIP&quot;: &quot;aaa.aaa.aaa.aaa&quot;, 
+        &quot;description&quot;: &quot;note&quot;, 
+        &quot;role&quot;: &quot;default&quot;, 
+        &quot;name&quot;: &quot;beanstalkserver_o6hbh&quot;, 
+        &quot;privateIP&quot;: &quot;bbb.bbb.bbb.bbb&quot;
+    }
+]
+
+</code></pre>
+
+<p>each instance has following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>publicIP</td>
+<td>Public IP address of this server</td>
+</tr>
+<tr>
+<td>privateIP</td>
+<td>IP address of this server on the private network</td>
+</tr>
+<tr>
+<td>name</td>
+<td>unique instance name</td>
+</tr>
+<tr>
+<td>role</td>
+<td>always <code>default</code></td>
+</tr>
+<tr>
+<td>description</td>
+<td>optional text to describe this instance</td>
+</tr>
+</tbody>
+</table>
+<h2 id="apply-configuration-13">Apply configuration (1/3)</h2>
+<p>First configuration step connects as root and creates sudo capable user using <code>access.ini</code> configuration.</p>
+<p>Usualy you only run this command once, or/and everytime you add new <code>beanstalkserver</code> instance to your organisation.</p>
+<pre><code>cmdcenter.py setup server --step 1 beanstalkserver --org myorg
+</code></pre>
+
+<h2 id="apply-configuration-23">Apply configuration (2/3)</h2>
+<p>Second configuration step connects as sudo capable user and installs minimum viable software:</p>
+<ul>
+<li>docker</li>
+<li>beanstalkd (it runs in docker containers)</li>
+<li>fail2ban</li>
+</ul>
+<p><strong>WARNING: this step involves downtime</strong>
+<strong>if all you want is to add daemons, you must run deploy command below instead</strong></p>
+<pre><code>cmdcenter.py setup server --step 2 beanstalkserver --org myorg
+</code></pre>
+
+<h2 id="apply-configuration-33">Apply configuration (3/3)</h2>
+<p>Last configuration step must be run everytime you create/update/remove a beanstalkd daemon.</p>
+<pre><code>cmdcenter.py setup server beanstalkserver --step deploy --org myorg
+</code></pre></div>
             
         </div>
 
@@ -226,12 +294,12 @@
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -260,8 +328,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.14.0
-Build Date UTC : 2015-11-24 21:42:51.586453
--->

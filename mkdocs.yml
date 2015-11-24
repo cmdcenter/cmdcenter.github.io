@@ -1,4 +1,36 @@
-site_name: My Docs
+site_name: CMDCENTER
 pages:
-- Home: index.md
-- About: about.md
+- Home: 'index.md'
+- Basics:
+    - 'Introduction': 'basics/intro.md'
+    - 'Install instructions': 'basics/install.md'
+- Guides:
+#    - 'Organisations': 'guides/organisations.md'
+#    - 'Apps': 'about.md'
+    - 'Application Server': 'guides/appserver.md'
+    - 'MongoDB Server': 'guides/mongo3server.md'
+    - 'MySQL Server': 'guides/mysql5server.md'
+    - 'Beanstalk Server': 'guides/beanstalkserver.md'
+- About:
+    - 'License': 'about/license.md'
+    - 'Release Notes': 'about/release-notes.md'
+theme: mkdocs
+#theme: readthedocs
+#theme: bootstrap
+#theme: amelia
+#theme: cerulean
+#theme: cosmo
+#theme: cyborg
+##theme: flatly
+##theme: journal
+#theme: readable
+#theme: simplex
+#theme: slate
+#theme: spacelab
+##theme: united
+#theme: yeti
+
+google_analytics: ['UA-70461806-1', 'cmdcenter.github.io']
+
+
+

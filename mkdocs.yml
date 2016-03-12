@@ -5,7 +5,8 @@ pages:
     - 'Introduction': 'basics/intro.md'
     - 'Install instructions': 'basics/install.md'
 - Guides:
-#    - 'Organisations': 'guides/organisations.md'
+    - 'Organisations': 'guides/organisations.md'
+    - 'Applications': 'guides/applications.md'
 #    - 'Apps': 'about.md'
     - 'Application Server': 'guides/appserver.md'
     - 'MongoDB Server': 'guides/mongo3server.md'

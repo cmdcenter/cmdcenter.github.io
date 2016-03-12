@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Application Server - CMDCENTER</title>
+	<title>Organisations - CMDCENTER</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -95,8 +95,8 @@
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../organisations/">Organisations</a>
+<li class="active">
+    <a href="./">Organisations</a>
 </li>
 
                         
@@ -107,8 +107,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Application Server</a>
+<li >
+    <a href="../appserver/">Application Server</a>
 </li>
 
                         
@@ -166,12 +166,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../applications/">
+                        <a rel="next" href="../../basics/install/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../mongo3server/">
+                        <a rel="prev" href="../applications/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -190,32 +190,16 @@
         <li class="main active"><a href="#intro">Intro</a></li>
         
     
-        <li class="main "><a href="#design-decisions">Design decisions</a></li>
-        
-            <li><a href="#docker">Docker</a></li>
-        
-            <li><a href="#application-state">Application state</a></li>
+        <li class="main "><a href="#what-is-an-organisation">What is an organisation ?</a></li>
         
     
-        <li class="main "><a href="#create-new-instance">Create new instance</a></li>
+        <li class="main "><a href="#independance">Independance</a></li>
         
     
-        <li class="main "><a href="#instances-file">Instances file</a></li>
+        <li class="main "><a href="#organisation-folder-structure">Organisation folder structure</a></li>
         
     
-        <li class="main "><a href="#credentials-file">Credentials file</a></li>
-        
-    
-        <li class="main "><a href="#apply-configuration-12">Apply configuration (1/2)</a></li>
-        
-    
-        <li class="main "><a href="#apply-configuration-22">Apply configuration (2/2)</a></li>
-        
-    
-        <li class="main "><a href="#show-servers">Show servers</a></li>
-        
-    
-        <li class="main "><a href="#ssh">SSH</a></li>
+        <li class="main "><a href="#private-network">Private network</a></li>
         
     
     </ul>
@@ -223,152 +207,74 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="intro">Intro</h2>
-<p>Application server is a server type that will let us run applications inside docker containers.</p>
-<p>Unused port is automaticaly assigned to each container to route HTTP traffic.</p>
-<p>Nginx is listening on ports 80 and 443.</p>
-<p>In the example below, organisation has 6 apps and 1 <code>appserver</code> instance</p>
-<p><img alt="app server instance" src="../../img/appserver-inside.png" /></p>
-<h2 id="design-decisions">Design decisions</h2>
-<h3 id="docker">Docker</h3>
-<p>One <code>appserver</code> instance runs multiple apps, each app has its own docker container</p>
-<p>Multiple <code>appserver</code> instances inside same organisation will run, the exact same set of apps</p>
-<h3 id="application-state">Application state</h3>
-<p>Each application is stateless. We consider that you must NOT use your application server's disk to store app state</p>
-<p>Instead, you can use databases, file servers and services like AWS S3</p>
-<p>Please check guides on <a href="../../guides/mongo3server/">mongodb</a> and <a href="../../guides/mysql/">mysql</a> to understand how cmdcenter manages databases </p>
-<p>Stateless approcoah also helps to horizontaly scale your apps, by adding or removing <code>appserver</code> instances at will.</p>
-<h2 id="create-new-instance">Create new instance</h2>
-<p>Assuming that:</p>
-<ul>
-<li>your organisation name is: <code>myorg</code></li>
-<li>public IP of your server is: <code>aaa.aaa.aaa.aaa</code></li>
-<li>private IP of your server is: <code>bbb.bbb.bbb.bbb</code></li>
-</ul>
-<pre><code>cmdcenter.py create instance --pubip aaa.aaa.aaa.aaa --privip bbb.bbb.bbb.bbb --desc &quot;note&quot; appserver --org myorg
+<p>Organisations is an important concept in cmdcenter.</p>
+<p>It helps you separate ownership and control access to infrastructures you manage.</p>
+<h2 id="what-is-an-organisation">What is an organisation ?</h2>
+<p>Organisation concept maps one to one with the person or team responsible of managing deployments/backups and hosting inside an organisation.</p>
+<p>Usualy we call this people system engineers/sysadmins/build engineers, ... and in some organisations developpers are also directly responsible of operations (devops).</p>
+<p>CmdCenter is aimed and designed exactly for this people.</p>
+<h2 id="independance">Independance</h2>
+<p>An organisation is 100% independent.</p>
+<p>It has its own server instances, members, apps and private network</p>
+<p><img alt="Organisation example" src="../../img/organisation-1.png" /></p>
+<h2 id="organisation-folder-structure">Organisation folder structure</h2>
+<p>All data and configurations are stored inside dedicated organisation folder under $CMDCENTER_DATAHOME directory</p>
+<pre><code>.
+├── apps                                           // applications
+│   ├── myapp1_staging                             // example app #1
+│   │   ├── files
+│   │   │   └── remote                             // all this files will be copied to remote appserver hosts
+│   │   │       ├── docker                         // Can contain files to include inside Docker. src folder contains sources from git repository
+│   │   │       │   ├── Dockerfile                 // Dockerfile to create docker image
+│   │   │       └── host
+│   │   │           ├── git_deploy_key             // deploy key (private)
+│   │   │           └── git_deploy_key.pub         // deploy key (public), include this in your private git repository settings
+│   │   ├── mongo.json                             // this app uses a mongodb server inside this organisation
+│   │   ├── mysql.json                             // this app uses a mysql server inside this organisation
+│   │   └── project.json                           // application basic config
+│   └── testapp                                    // example app #2
+│       ├── files
+│       │   └── remote
+│       │       ├── docker
+│       │       │   └── Dockerfile
+│       │       └── host
+│       │           ├── git_deploy_key
+│       │           └── git_deploy_key.pub
+│       ├── mongo.json
+│       ├── mysql.json
+│       └── project.json
+├── backups                                        // global backup folder
+│   └── mongo                                      // mongodb backups
+│       ├── 20151115_043933
+│       │   └── admin
+│       │       ├── system.indexes.bson
+│       │       ├── system.users.bson
+│       │       ├── system.users.metadata.json
+│       │       ├── system.version.bson
+│       │       └── system.version.metadata.json
+│       └── 20151115_043933.tar.gz
+├── servers                                        // servers folder
+│   ├── appserver                                  // appserver config
+│   │   ├── access.ini
+│   │   ├── files
+│   │   │   └── remote
+│   │   │       └── nginx
+│   │   └── instances.json
+│   ├── mongo3server                               // mongo3server config
+│   │   ├── access.ini
+│   │   └── instances.json
+│   └── mysql5server                               // mysql5server config
+│       ├── access.ini
+│       └── instances.json
+└── sshkeys                                        // ssh keys
+    ├── main_ssh_id
+    └── main_ssh_id.pub
+
+
 </code></pre>
 
-<p>Running this command will add new entry into <code>instances.json</code> file in <code>myorg/servers/appserver</code> folder</p>
-<h2 id="instances-file">Instances file</h2>
-<p><code>instances.json</code> contains list of every <code>appserver</code> instance available in current organisation</p>
-<pre><code class="json">
-[
-    {
-        &quot;publicIP&quot;: &quot;aaa.aaa.aaa.aaa&quot;, 
-        &quot;description&quot;: &quot;note&quot;, 
-        &quot;role&quot;: &quot;default&quot;, 
-        &quot;name&quot;: &quot;appserver_o6hbh&quot;, 
-        &quot;privateIP&quot;: &quot;bbb.bbb.bbb.bbb&quot;
-    }
-]
-
-</code></pre>
-
-<p>each instance has following fields:</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>publicIP</td>
-<td>Public IP address of this server</td>
-</tr>
-<tr>
-<td>privateIP</td>
-<td>IP address of this server on the private network</td>
-</tr>
-<tr>
-<td>name</td>
-<td>unique instance name</td>
-</tr>
-<tr>
-<td>role</td>
-<td>always <code>default</code></td>
-</tr>
-<tr>
-<td>description</td>
-<td>optional text to describe this instance</td>
-</tr>
-</tbody>
-</table>
-<h2 id="credentials-file">Credentials file</h2>
-<p>Instances are automatically configured to use sshkeys as ssh auth mecanism.</p>
-<p>However, users still require passwords to perform system administrator operations </p>
-<p>Assuming that your organisation name is: <code>myorg</code>, username and password of sudo capable user is stored in <code>myorg/servers/appserver/access.ini</code> file:</p>
-<pre><code class="ini">[sudouser]
-username=randomsudousername
-password=RaNd0mP@5SW0rD
-</code></pre>
-
-<h2 id="apply-configuration-12">Apply configuration (1/2)</h2>
-<p>First configuration step connects as root and creates sudo capable user using <code>access.ini</code> configuration.</p>
-<p>Usualy you only run this command once, or/and everytime you add new <code>appserver</code> instance to your organisation.</p>
-<pre><code>cmdcenter.py setup server --step 1 appserver --org myorg
-</code></pre>
-
-<h2 id="apply-configuration-22">Apply configuration (2/2)</h2>
-<p>Second configuration step connects as sudo capable user and installs minimum viable software:</p>
-<ul>
-<li>docker</li>
-<li>git</li>
-<li>nginx</li>
-<li>fail2ban</li>
-</ul>
-<p>It also copies configutation files</p>
-<pre><code>cmdcenter.py setup server --step 2 appserver --org myorg
-</code></pre>
-
-<h2 id="show-servers">Show servers</h2>
-<p>You can use following command to show servers in your organisation</p>
-<pre><code class="bash">cmdcenter.py show servers --org myorg
-</code></pre>
-
-<pre><code>Here is a list of server groups i found in &quot;myorg&quot; organisation:
-
-appserver
-  appserver_5davo :: default :: appserver 01
-    publicIP  : aaa.aaa.aaa.aaa
-    privateIP : bbb.bbb.bbb.bbb
-
-mysql5server
-  mysql5server_3mqdG :: default :: main mysql5server
-    publicIP  : ccc.ccc.ccc.ccc
-    privateIP : ddd.ddd.ddd.ddd
-
-mongo3server
-  mongo3server_lEdlj :: default :: main mongo3server
-    publicIP  : eee.eee.eee.eee
-    privateIP : fff.fff.fff.fff
-</code></pre>
-
-<h2 id="ssh">SSH</h2>
-<p>You can SSH to any server <code>appserver</code> instance.</p>
-<p>Here is a command to lisy your SSH options for <code>myorg</code> organisation</p>
-<pre><code class="bash">cmdcenter.py ssh appserver --org myorg
-</code></pre>
-
-<pre><code>USAGE: cmdcenter.py ssh SERVERGROUP USERNAME HOSTNAME
-
-Here is a list of servers you can SSH:
-
-  cmdcenter.py ssh appserver randomsudousername aaa.aaa.aaa.aaa --org myorg
-  cmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg
-
-  cmdcenter.py ssh mysql5server randomsudousername ccc.ccc.ccc.ccc --org myorg
-  cmdcenter.py ssh mysql5server root ccc.ccc.ccc.ccc --org myorg
-
-  cmdcenter.py ssh mongo3server randomsudousername eee.eee.eee.eee --org myorg
-  cmdcenter.py ssh mongo3server root eee.eee.eee.eee --org myorg
-</code></pre>
-
-<p>Then, simply pick an instance and user to SSH</p>
-<pre><code class="bash">cmdcenter.py ssh appserver root aaa.aaa.aaa.aaa --org myorg
-</code></pre>
-
-<p>You do not need to enter passwords, these are automatically picked up from your <code>access.ini</code> config files in combination with ssh keys.</p></div>
+<h2 id="private-network">Private network</h2>
+<p>All server instances inside an organisation are designed to run inside exactly one private network.</p></div>
             
         </div>
 
